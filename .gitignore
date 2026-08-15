@@ -36,6 +36,18 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local database data (docker-compose volume)
+/postgres
+
+# local tool/editor configs
+.agents/
+.claude/
+.windsurf/
+skills-lock.json
+
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/app/generated/prisma
