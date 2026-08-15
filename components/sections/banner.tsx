@@ -52,7 +52,10 @@ export function Banner() {
         }}
       />
       <Container className="relative z-10">
-        <Stagger className="grid items-center gap-12.5 py-16 pb-21 nav:grid-cols-[1.05fr_0.95fr]">
+        <Stagger
+          trigger="mount"
+          className="grid items-center gap-12.5 py-16 pb-21 nav:grid-cols-[1.05fr_0.95fr]"
+        >
           <div>
             <StaggerItem>
               <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.75 text-[13px] font-semibold text-white">

@@ -9,13 +9,32 @@ interface StaggerProps {
   children: ReactNode;
   className?: string;
   once?: boolean;
+  trigger?: "inView" | "mount";
 }
 
-export function Stagger({ children, className, once = true }: StaggerProps) {
+export function Stagger({
+  children,
+  className,
+  once = true,
+  trigger = "inView",
+}: StaggerProps) {
   const shouldReduce = useReducedMotion();
 
   if (shouldReduce) {
     return <div className={cn(className)}>{children}</div>;
+  }
+
+  if (trigger === "mount") {
+    return (
+      <motion.div
+        variants={STAGGER_CONTAINER}
+        initial="hidden"
+        animate="visible"
+        className={cn(className)}
+      >
+        {children}
+      </motion.div>
+    );
   }
 
   return (
