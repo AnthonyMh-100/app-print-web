@@ -30,7 +30,11 @@ const stock = z.coerce
 
 const cardColor = z.string().trim().optional();
 
-const boolFromString = z.enum(["true", "false"]).transform((value) => value === "true");
+const boolFromString = (defaultValue: "true" | "false") =>
+  z
+    .enum(["true", "false"])
+    .default(defaultValue)
+    .transform((value) => value === "true");
 
 const image = z.object({
   publicId: z.string().min(1, { error: "image_invalid" }),
@@ -59,8 +63,8 @@ export const productSchema = z.object({
   price,
   stock,
   cardColor,
-  isActive: boolFromString.default("true"),
-  isFeatured: boolFromString.default("false"),
+  isActive: boolFromString("true"),
+  isFeatured: boolFromString("false"),
   images,
 });
 

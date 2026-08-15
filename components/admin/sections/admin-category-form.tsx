@@ -11,6 +11,7 @@ import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { Field, Input, Textarea } from "../ui/field";
 import { createCategory, updateCategory } from "@/actions/action-categories";
+import type { CategoryActionResult } from "@/actions/action-categories";
 import { CATEGORY_BADGE_OPTIONS } from "@/constants/admin";
 import { useToast } from "@/components/ui/toast";
 import { slugify } from "@/lib/slug";
@@ -27,12 +28,7 @@ interface AdminCategoryFormProps {
   };
 }
 
-type CategoryState = {
-  success: boolean;
-  errors: Record<string, string>;
-};
-
-const initialState: CategoryState = { success: false, errors: {} };
+const initialState: CategoryActionResult = { success: false, errors: {} };
 
 export function AdminCategoryForm({ mode, category }: AdminCategoryFormProps) {
   const action = mode === "edit" ? updateCategory : createCategory;

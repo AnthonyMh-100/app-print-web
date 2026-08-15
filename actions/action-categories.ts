@@ -6,7 +6,7 @@ import { slugify } from "@/lib/slug";
 import { categorySchema } from "@/lib/schemas";
 import { validate } from "@/lib/validation";
 
-type CategoryActionResult =
+export type CategoryActionResult =
   | { success: false; errors: Record<string, string> }
   | { success: true; data: { id: number; slug: string } };
 
