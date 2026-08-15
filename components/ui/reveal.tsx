@@ -21,7 +21,7 @@ export function Reveal({ children, className, delay = 0, once = true }: RevealPr
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 1, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, amount: 0.2 }}
       transition={{ ...REVEAL_TRANSITION, delay }}

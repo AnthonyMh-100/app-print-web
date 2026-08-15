@@ -15,7 +15,7 @@ export const LIST_VARIANTS: Variants = {
 };
 
 export const ITEM_VARIANTS: Variants = {
-  hidden: { opacity: 0, x: -10 },
+  hidden: { opacity: 1, x: -10 },
   visible: { opacity: 1, x: 0, transition: { duration: 0.25, ease: EASE } },
 };
 
@@ -32,6 +32,6 @@ export const STAGGER_CONTAINER: Variants = {
 };
 
 export const STAGGER_ITEM: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 1, y: 28 },
   visible: { opacity: 1, y: 0, transition: REVEAL_TRANSITION },
 };
