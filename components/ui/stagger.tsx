@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
-import { STAGGER_CONTAINER } from "@/constants/motion";
+import { STAGGER_CONTAINER, EASE } from "@/constants/motion";
 import { cn } from "@/utils/cn";
 
 interface StaggerProps {
@@ -27,9 +27,9 @@ export function Stagger({
   if (trigger === "mount") {
     return (
       <motion.div
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        animate="visible"
+        initial={{ y: 24, opacity: 1 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: EASE }}
         className={cn(className)}
       >
         {children}
